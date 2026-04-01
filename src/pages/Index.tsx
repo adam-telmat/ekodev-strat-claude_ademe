@@ -3,6 +3,7 @@ import Divider from "@/components/layout/Divider";
 import HeroSection from "@/components/sections/HeroSection";
 import CibleSection from "@/components/sections/CibleSection";
 import SystemeSection from "@/components/sections/SystemeSection";
+import RadarSection from "@/components/sections/RadarSection";
 import ProspectionSection from "@/components/sections/ProspectionSection";
 import PropositionSection from "@/components/sections/PropositionSection";
 import LtvSection from "@/components/sections/LtvSection";
@@ -16,6 +17,8 @@ const Index = () => (
     <CibleSection />
     <Divider />
     <SystemeSection />
+    <Divider />
+    <RadarSection />
     <Divider />
     <ProspectionSection />
     <Divider />

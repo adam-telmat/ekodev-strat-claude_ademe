@@ -149,6 +149,7 @@ export const nextSteps = [
 export const navLinks = [
   { href: "#cible", label: "Cible" },
   { href: "#systeme", label: "Système" },
+  { href: "#radar", label: "Radar ADEME", highlight: true },
   { href: "#prospection", label: "Prospection" },
   { href: "#proposition", label: "Proposition" },
   { href: "#ltv", label: "LTV" },

@@ -5,12 +5,16 @@ const Navbar = () => (
     <div className="font-heading font-extrabold text-base text-foreground">
       Adam Telmat <span className="text-primary-glow">×</span> ekodev
     </div>
-    <ul className="hidden md:flex gap-8 list-none">
+    <ul className="hidden md:flex gap-8 list-none items-center">
       {navLinks.map((link) => (
         <li key={link.href}>
           <a
             href={link.href}
-            className="font-mono text-[11px] tracking-[0.1em] uppercase text-text-3 no-underline transition-colors duration-200 hover:text-primary-glow"
+            className={`font-mono text-[11px] tracking-[0.1em] uppercase no-underline transition-colors duration-200 ${
+              link.highlight
+                ? "text-primary-glow hover:text-[#52e68e] border border-primary-glow/30 px-2.5 py-1 rounded-full hover:border-primary-glow/60"
+                : "text-text-3 hover:text-primary-glow"
+            }`}
           >
             {link.label}
           </a>

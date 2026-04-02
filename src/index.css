@@ -51,7 +51,11 @@
 @layer base {
   * { @apply border-border; }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
 
   body {
     font-family: 'Instrument Sans', sans-serif;
@@ -61,8 +65,14 @@
     background: rgb(var(--paper));
     color: #003035;
     overflow-x: hidden;
+    max-width: 100vw;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Tout élément ne doit jamais causer un scroll horizontal */
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
 
   p {
@@ -113,4 +123,179 @@
     50% { opacity: 0.4; transform: scale(0.8); }
   }
   .animate-pulse-dot { animation: pulse-dot 2s infinite; }
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile first, tous écrans
+   xs  < 480px   (petit iPhone)
+   sm  < 768px   (iPhone large, petites tablettes)
+   md  < 1024px  (iPad, tablettes)
+   lg  < 1280px  (laptop 13")
+   xl  ≥ 1280px  (desktop 1080p)
+   2xl ≥ 1920px  (2K / 1440p)
+   4k  ≥ 2560px  (4K)
+   ============================================================ */
+
+/* ---- NAVBAR ---- */
+.nav-links, .nav-ctas { display: flex; }
+.nav-hamburger { display: none; }
+
+/* ---- SECTIONS padding ---- */
+section, [data-section] {
+  padding-left: clamp(20px, 5vw, 120px) !important;
+  padding-right: clamp(20px, 5vw, 120px) !important;
+}
+
+/* ---- SectionHeader grid ---- */
+.section-header-grid {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: clamp(16px, 3vw, 40px);
+}
+
+/* ---- Grilles 3 colonnes → adaptatives ---- */
+.grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-2col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-4col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ============================================================
+   TABLET (≤ 1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+  .nav-links { display: none !important; }
+
+  #hero { padding: 100px 40px 60px !important; }
+  #hero h1 { font-size: clamp(38px, 6vw, 60px) !important; white-space: normal !important; }
+  #hero svg[width="640"] { width: 340px !important; height: 340px !important; }
+
+  .grid-3col { grid-template-columns: repeat(2, 1fr) !important; }
+  .grid-4col { grid-template-columns: repeat(2, 1fr) !important; }
+  .sponsors-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+
+  .table-responsive { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+  .table-responsive > div { min-width: 860px !important; }
+
+  /* containers internes avec padding fixe */
+  [style*="padding: \"0 60px\""],
+  [style*="padding: '0 60px'"] { padding: 0 32px !important; }
+}
+
+/* ============================================================
+   MOBILE (≤ 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Navbar */
+  .nav-links   { display: none !important; }
+  .nav-ctas    { display: none !important; }
+  .nav-hamburger { display: flex !important; }
+  nav { padding: 0 20px !important; }
+
+  /* Hero */
+  #hero {
+    padding: 90px 20px 60px !important;
+    min-height: auto !important;
+  }
+  #hero h1 { font-size: clamp(30px, 8vw, 44px) !important; white-space: normal !important; }
+  #hero > div:first-child { display: none !important; }
+
+  /* Toutes sections — padding uniforme */
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
+  /* Tous les containers internes maxWidth + padding */
+  section > div[style],
+  section > div > div[style] {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Grilles → 1 colonne */
+  .grid-3col  { grid-template-columns: 1fr !important; }
+  .grid-2col  { grid-template-columns: 1fr !important; }
+  .grid-4col  { grid-template-columns: 1fr !important; }
+  .sponsors-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+
+  /* SectionHeader */
+  .section-header-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+
+  /* Timeline — scroll horizontal */
+  .timeline-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; padding-bottom: 12px !important; }
+  .timeline-wrap > div { min-width: 560px !important; }
+
+  /* Tableau comparatif */
+  .table-responsive { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+  .table-responsive > div { min-width: 820px !important; }
+
+  /* Total bar LTV — empiler */
+  .ltv-total { flex-direction: column !important; gap: 16px !important; text-align: center !important; padding: 28px 20px !important; }
+  .ltv-total > div:last-child { font-size: 44px !important; }
+
+  /* Prospection inner container */
+  .prospection-inner { padding: 0 !important; max-width: 100% !important; }
+
+  /* Playbooks inner */
+  .playbooks-inner { padding: 0 !important; max-width: 100% !important; }
+
+  /* Images screenshots */
+  .screenshot-img { width: 100% !important; }
+
+  /* Fonts */
+  h2 { font-size: clamp(24px, 7vw, 38px) !important; }
+  h3 { font-size: clamp(18px, 5vw, 28px) !important; }
+  p  { font-size: 15px !important; }
+}
+
+/* ============================================================
+   SMALL MOBILE (≤ 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  #hero h1 { font-size: clamp(26px, 9vw, 36px) !important; }
+  section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .ltv-total > div:last-child { font-size: 36px !important; }
+}
+
+/* ============================================================
+   2K / 1440p (≥ 1920px)
+   ============================================================ */
+@media (min-width: 1920px) {
+  body { font-size: 18px; }
+  p    { font-size: 17px; }
+  section {
+    padding-top: 140px !important;
+    padding-bottom: 140px !important;
+    padding-left: clamp(80px, 8vw, 200px) !important;
+    padding-right: clamp(80px, 8vw, 200px) !important;
+  }
+  #hero h1 { font-size: clamp(80px, 5vw, 110px) !important; }
+}
+
+/* ============================================================
+   4K (≥ 2560px)
+   ============================================================ */
+@media (min-width: 2560px) {
+  body { font-size: 20px; }
+  p    { font-size: 19px; }
+  section {
+    padding-left: clamp(120px, 10vw, 320px) !important;
+    padding-right: clamp(120px, 10vw, 320px) !important;
+  }
+  #hero h1 { font-size: clamp(100px, 5.5vw, 140px) !important; }
+  nav { padding: 0 80px !important; }
 }

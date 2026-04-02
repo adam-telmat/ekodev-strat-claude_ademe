@@ -277,7 +277,7 @@ const RadarSection = () => {
       ref={sectionRef}
       style={{
         background: "#001f23",
-        padding: "120px 0",
+        padding: "clamp(60px,10vw,120px) 0",
         position: "relative",
         overflow: "hidden",
       }}
@@ -296,7 +296,7 @@ const RadarSection = () => {
         backgroundSize: "60px 60px",
       }} />
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 60px", position: "relative" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px,5vw,60px)", position: "relative" }}>
 
         {/* ── HEADER ─────────────────────────────────────────────────────────── */}
         <div className="reveal" style={{ marginBottom: 80 }}>
@@ -329,7 +329,7 @@ const RadarSection = () => {
         </div>
 
         {/* ── 3 PILLARS ──────────────────────────────────────────────────────── */}
-        <div className="reveal" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, marginBottom: 72 }}>
+        <div className="reveal grid-3col" style={{ gap: 24, marginBottom: 72 }}>
           {pillars.map((p, i) => (
             <div key={i} style={{
               background: "rgba(255,255,255,0.04)",
@@ -380,7 +380,7 @@ const RadarSection = () => {
             </h3>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+          <div className="grid-3col" style={{ gap: 20 }}>
             {signals.map((s, i) => (
               <div key={i} style={{
                 background: s.dot,

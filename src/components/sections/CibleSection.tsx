@@ -14,7 +14,7 @@ const icpCards = [
 const SectionHeader = ({ num, phase, title, sub, dark = false }: {
   num: string; phase: string; title: React.ReactNode; sub: string; dark?: boolean;
 }) => (
-  <div className="reveal" style={{ display: "grid", gridTemplateColumns: "100px 1fr", gap: 40, alignItems: "start", marginBottom: 80 }}>
+  <div className="reveal section-header-grid" style={{ alignItems: "start", marginBottom: 80 }}>
     <div style={{ fontFamily: "'Fraunces', serif", fontSize: 72, fontWeight: 900, color: dark ? "rgba(255,255,255,0.06)" : "rgba(0,48,53,0.07)", lineHeight: 1, fontStyle: "italic" }}>
       {num}
     </div>
@@ -49,12 +49,12 @@ const CibleSection = () => {
   }, []);
 
   return (
-    <section id="ciblage" ref={sectionRef} style={{ padding: "120px 60px", background: "#F8F7F3" }}>
+    <section id="ciblage" ref={sectionRef} style={{ padding: "clamp(60px,10vw,120px) clamp(20px,5vw,60px)", background: "#F8F7F3" }}>
       <SectionHeader num="01" phase="Phase 1" title={<>Identification &amp;<br />Ciblage Asymétrique</>}
         sub="La vérité du terrain, c'est qu'on ne vend pas un bilan carbone complexe à une PME isolée. Pour maximiser la Life-Time Value (LTV) et le potentiel de conseil d'ekodev, l'Ideal Customer Profile (ICP) en région Sud se concentre sur deux cibles : les ETI indépendantes et les grands sites industriels / filiales de groupes. C'est là que la pression réglementaire (CSRD) et la complexité du Scope 3 exigent un véritable accompagnement humain, et pas juste un outil SaaS." />
 
       {/* ICP Grid — gap 1px border style */}
-      <div className="reveal" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "rgba(0,48,53,0.12)", marginBottom: 60 }}>
+      <div className="reveal grid-3col" style={{ gap: 1, background: "rgba(0,48,53,0.12)", marginBottom: 60 }}>
         {icpCards.map((card) => (
           <div key={card.name} style={{ background: "#F8F7F3", padding: 40, transition: "background 0.2s", cursor: "default" }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = "#EDE9E0"; }}
@@ -76,7 +76,7 @@ const CibleSection = () => {
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,220,90,0.7)", marginBottom: 32 }}>
           Les deux sponsors à activer
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48 }}>
+        <div className="sponsors-grid grid-2col" style={{ gap: 48 }}>
           {[
             { title: "Sponsor Économique", role: "Directeur Administratif & Financier / Directeur Général", desc: "Il détient le budget. Il ne s'intéresse pas à la méthodologie carbone, il s'intéresse au risque et à la valorisation. L'objectif est de lui prouver que ne pas faire ce bilan, ou mal le faire, coûtera plus cher à l'entreprise : perte d'appels d'offres, inefficacités énergétiques, anticipation CSRD.", angle: "SÉCURISATION DU CA + ROI (via Enoptea / Energiency) + ANTICIPATION CSRD" },
             { title: "Sponsor Métier & Opérationnel", role: "Directeur RSE / Directeur QSE-HSE / Directeur de Site", desc: "C'est notre véritable allié et prescripteur interne. Il sait qu'il doit faire ce bilan, mais il est terrifié par la charge de travail (collecte de la donnée Scope 3). L'objectif est de le rassurer sur l'accompagnement humain d'ekodev et la décharge opérationnelle qu'on apporte.", angle: "MÉTHODOLOGIE CADRÉE + DÉCHARGE MENTALE + CRÉATION DE LA FEUILLE DE ROUTE" },

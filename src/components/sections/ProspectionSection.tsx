@@ -85,8 +85,8 @@ const ProspectionSection = () => {
   ];
 
   return (
-    <section id="engagement" ref={ref} style={{ padding: "120px 0", background: "#F8F7F3", overflow: "hidden" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 60px" }}>
+    <section id="engagement" ref={ref} style={{ padding: "clamp(60px,10vw,120px) 0", background: "#F8F7F3", overflow: "hidden" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px,5vw,60px)" }}>
 
         <SectionHeader num="02" phase="Phase 2"
           title={<>Séquence d'Engagement<br />&amp; Conversion</>}
@@ -100,86 +100,88 @@ const ProspectionSection = () => {
             color: "rgba(0,48,53,0.45)", marginBottom: 32,
           }}>// SÉQUENCE MULTICANALE — 10 JOURS</div>
 
-          {/* Steps row */}
-          <div style={{ position: "relative" }}>
-            {/* Connecting line */}
-            <div style={{
-              position: "absolute", top: 28, left: "5%", right: "5%", height: 1,
-              background: "linear-gradient(90deg, rgba(0,48,53,0.08), rgba(0,48,53,0.15) 50%, rgba(0,48,53,0.08))",
-              zIndex: 0,
-            }} />
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 16, position: "relative", zIndex: 1 }}>
-              {seqSteps.map((step, i) => (
-                <div key={step.day}
-                  onClick={() => setActiveStep(activeStep === i ? null : i)}
-                  style={{ display: "flex", flexDirection: "column", alignItems: "center", cursor: "pointer" }}
-                >
-                  {/* Circle */}
-                  <div style={{
-                    width: 56, height: 56, borderRadius: "50%",
-                    background: activeStep === i ? "#003035" : "#F8F7F3",
-                    border: `2px solid ${activeStep === i ? "#003035" : "rgba(0,48,53,0.15)"}`,
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    marginBottom: 14, transition: "all 0.25s",
-                    boxShadow: activeStep === i ? "0 4px 20px rgba(0,48,53,0.25)" : "none",
-                  }}>
-                    <span style={{
-                      fontFamily: "'JetBrains Mono', monospace", fontSize: 13,
-                      color: activeStep === i ? step.color : "rgba(0,48,53,0.5)",
-                      fontWeight: 700, lineHeight: 1,
-                    }}>{step.icon}</span>
-                  </div>
-
-                  {/* Day badge */}
-                  <div style={{
-                    fontFamily: "'JetBrains Mono', monospace", fontSize: 9,
-                    letterSpacing: "0.15em", textTransform: "uppercase" as const,
-                    color: activeStep === i ? "#003035" : "rgba(0,48,53,0.4)",
-                    marginBottom: 6, fontWeight: activeStep === i ? 700 : 400,
-                  }}>{step.day}</div>
-
-                  {/* Channel */}
-                  <div style={{
-                    fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
-                    color: activeStep === i ? step.color : "rgba(0,48,53,0.5)",
-                    marginBottom: 8, fontWeight: 600, letterSpacing: "0.05em",
-                  }}>{step.channel}</div>
-
-                  {/* Action */}
-                  <div style={{
-                    fontSize: 12, textAlign: "center" as const,
-                    color: "rgba(0,48,53,0.7)", lineHeight: 1.45, fontWeight: 500,
-                  }}>{step.action}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Detail panel */}
-            {activeStep !== null && (
+          {/* Steps row — wrapper scrollable sur mobile */}
+          <div className="timeline-wrap" style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" as any }}>
+            <div style={{ position: "relative", minWidth: 480 }}>
+              {/* Connecting line */}
               <div style={{
-                marginTop: 28,
-                background: "#003035",
-                padding: "24px 32px",
-                position: "relative",
-                animation: "fadeIn 0.2s ease",
-              }}>
-                <div style={{ position: "absolute", top: 0, left: `calc(${activeStep * 20 + 10}% - 10px)`, width: 0, height: 0, borderLeft: "10px solid transparent", borderRight: "10px solid transparent", borderBottom: "10px solid #003035" }} />
-                <div style={{ display: "flex", alignItems: "baseline", gap: 16 }}>
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: seqSteps[activeStep].color, letterSpacing: "0.15em", textTransform: "uppercase" as const }}>{seqSteps[activeStep].day} — {seqSteps[activeStep].channel}</span>
-                </div>
-                <div style={{ fontSize: 15, color: "rgba(248,247,243,0.85)", lineHeight: 1.7, marginTop: 8, fontWeight: 400 }}>{seqSteps[activeStep].detail}</div>
+                position: "absolute", top: 28, left: "5%", right: "5%", height: 1,
+                background: "linear-gradient(90deg, rgba(0,48,53,0.08), rgba(0,48,53,0.15) 50%, rgba(0,48,53,0.08))",
+                zIndex: 0,
+              }} />
+
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 16, position: "relative", zIndex: 1 }}>
+                {seqSteps.map((step, i) => (
+                  <div key={step.day}
+                    onClick={() => setActiveStep(activeStep === i ? null : i)}
+                    style={{ display: "flex", flexDirection: "column", alignItems: "center", cursor: "pointer" }}
+                  >
+                    {/* Circle */}
+                    <div style={{
+                      width: 56, height: 56, borderRadius: "50%",
+                      background: activeStep === i ? "#003035" : "#F8F7F3",
+                      border: `2px solid ${activeStep === i ? "#003035" : "rgba(0,48,53,0.15)"}`,
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      marginBottom: 14, transition: "all 0.25s",
+                      boxShadow: activeStep === i ? "0 4px 20px rgba(0,48,53,0.25)" : "none",
+                    }}>
+                      <span style={{
+                        fontFamily: "'JetBrains Mono', monospace", fontSize: 13,
+                        color: activeStep === i ? step.color : "rgba(0,48,53,0.5)",
+                        fontWeight: 700, lineHeight: 1,
+                      }}>{step.icon}</span>
+                    </div>
+
+                    {/* Day badge */}
+                    <div style={{
+                      fontFamily: "'JetBrains Mono', monospace", fontSize: 9,
+                      letterSpacing: "0.15em", textTransform: "uppercase" as const,
+                      color: activeStep === i ? "#003035" : "rgba(0,48,53,0.4)",
+                      marginBottom: 6, fontWeight: activeStep === i ? 700 : 400,
+                    }}>{step.day}</div>
+
+                    {/* Channel */}
+                    <div style={{
+                      fontFamily: "'JetBrains Mono', monospace", fontSize: 10,
+                      color: activeStep === i ? step.color : "rgba(0,48,53,0.5)",
+                      marginBottom: 8, fontWeight: 600, letterSpacing: "0.05em",
+                    }}>{step.channel}</div>
+
+                    {/* Action */}
+                    <div style={{
+                      fontSize: 12, textAlign: "center" as const,
+                      color: "rgba(0,48,53,0.7)", lineHeight: 1.45, fontWeight: 500,
+                    }}>{step.action}</div>
+                  </div>
+                ))}
               </div>
-            )}
-          </div>
-        </div>
+            </div>
+          </div>{/* fin timeline-wrap */}
+
+          {/* Detail panel — en dehors du scroll */}
+          {activeStep !== null && (
+            <div style={{
+              marginTop: 28,
+              background: "#003035",
+              padding: "24px clamp(16px,4vw,32px)",
+              position: "relative",
+              animation: "fadeIn 0.2s ease",
+            }}>
+              <div style={{ position: "absolute", top: 0, left: `calc(${activeStep * 20 + 10}% - 10px)`, width: 0, height: 0, borderLeft: "10px solid transparent", borderRight: "10px solid transparent", borderBottom: "10px solid #003035" }} />
+              <div style={{ display: "flex", alignItems: "baseline", gap: 16 }}>
+                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: seqSteps[activeStep].color, letterSpacing: "0.15em", textTransform: "uppercase" as const }}>{seqSteps[activeStep].day} — {seqSteps[activeStep].channel}</span>
+              </div>
+              <div style={{ fontSize: 15, color: "rgba(248,247,243,0.85)", lineHeight: 1.7, marginTop: 8, fontWeight: 400 }}>{seqSteps[activeStep].detail}</div>
+            </div>
+          )}
+        </div>{/* fin reveal timeline */}
 
       </div>{/* fin maxWidth 1200 — timeline */}
 
       {/* ── PROOF SCREENSHOTS — pleine largeur ──────────────────────────────── */}
       <div className="reveal" style={{ marginBottom: 72 }}>
         {/* Titre dans le conteneur centré */}
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 60px 32px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px,5vw,60px) 32px" }}>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "rgba(0,48,53,0.45)", marginBottom: 12 }}>// PREUVES TERRAIN</div>
           <h3 style={{ fontFamily: "'Fraunces', serif", fontSize: 24, fontWeight: 800, color: "#003035", margin: 0 }}>Le système en action</h3>
         </div>
@@ -188,9 +190,9 @@ const ProspectionSection = () => {
         <div style={{ display: "flex", flexDirection: "column" as const, gap: 48 }}>
           {proofItems.map(({ src, tag, title, desc }, idx) => (
             <div key={src}>
-              <img src={src} alt={title} style={{ width: idx === 0 ? "70%" : "22%", display: "block", height: "auto", margin: "0 auto" }} />
+              <img src={src} alt={title} className="screenshot-img" style={{ width: idx === 0 ? "70%" : "22%", maxWidth: "100%", display: "block", height: "auto", margin: "0 auto" }} />
               {/* Caption sous */}
-              <div style={{ maxWidth: 1200, margin: "0 auto", padding: "20px 60px 0" }}>
+              <div style={{ maxWidth: 1200, margin: "0 auto", padding: "20px clamp(16px,5vw,60px) 0" }}>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "rgba(0,48,53,0.4)", marginBottom: 8 }}>{tag}</div>
                 <div style={{ fontWeight: 700, fontSize: 16, color: "#003035", marginBottom: 8 }}>{title}</div>
                 <p style={{ fontSize: 14, color: "rgba(0,48,53,0.72)", lineHeight: 1.7, margin: 0, fontWeight: 400 }}>{desc}</p>
@@ -202,7 +204,7 @@ const ProspectionSection = () => {
       </div>{/* fin screenshots */}
 
       {/* reste dans conteneur centré */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 60px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px,5vw,60px)" }}>
 
         {/* ── HUMAN TAKEOVER CALLOUT ─────────────────────────────────────────── */}
         <div className="reveal" style={{ marginBottom: 72 }}>

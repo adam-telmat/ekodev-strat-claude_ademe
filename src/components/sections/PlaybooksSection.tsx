@@ -125,8 +125,8 @@ const PlaybooksSection = () => {
   };
 
   return (
-    <section id="playbooks" ref={ref} style={{ padding: "120px 0", background: "#003035" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 60px" }}>
+    <section id="playbooks" ref={ref} style={{ padding: "clamp(60px,10vw,120px) 0", background: "#003035" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px,5vw,60px)" }}>
 
         <SectionHeader num="02b" phase="Phase 2 — Playbooks"
           dark

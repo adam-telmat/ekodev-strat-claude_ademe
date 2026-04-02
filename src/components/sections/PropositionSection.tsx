@@ -127,11 +127,11 @@ const PropositionSection = () => {
   return (
     <>
       {/* PHASE 3 */}
-      <section id="cadrage" ref={cadreRef} style={{ background: "#EDE9E0", padding: "120px 60px" }}>
+      <section id="cadrage" ref={cadreRef} style={{ background: "#EDE9E0", padding: "clamp(60px,10vw,120px) clamp(20px,5vw,60px)" }}>
         <SectionHeader num="03" phase="Phase 3 — Découverte & Qualification" title={<>Le Rendez-Vous<br /><em style={{ fontStyle: "italic", color: "#9BC5C7" }}>de Qualification</em></>}
           sub="Le premier rendez-vous n'est jamais une présentation catalogue d'ekodev. C'est une phase de découverte active où les questions posées doivent prouver au prospect que l'on comprend la complexité de son métier mieux que lui." />
 
-        <div className="reveal" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 1, background: "rgba(0,48,53,0.12)", marginBottom: 60 }}>
+        <div className="reveal grid-2col" style={{ gap: 1, background: "rgba(0,48,53,0.12)", marginBottom: 60 }}>
           {frameworkCards.map((card) => (
             <div key={card.num} style={{ background: "#F8F7F3", padding: 48 }}>
               <div style={{ fontFamily: "'Fraunces', serif", fontSize: 52, fontWeight: 900, color: "rgba(0,48,53,0.08)", lineHeight: 1, marginBottom: 18, fontStyle: "italic" }}>{card.num}</div>
@@ -149,7 +149,7 @@ const PropositionSection = () => {
       </section>
 
       {/* PHASE 4 */}
-      <section id="closing" ref={closingRef} style={{ padding: "120px 60px", background: "#F8F7F3" }}>
+        <section id="closing" ref={closingRef} style={{ padding: "clamp(60px,10vw,120px) clamp(20px,5vw,60px)", background: "#F8F7F3" }}>
         <SectionHeader num="04" phase="Phase 4" title={<>Proposition de Valeur<br />&amp; Closing</>}
           sub="La proposition commerciale n'est jamais envoyée seule. Elle est toujours soutenue en réunion. L'objectif est de lire avec le client, traiter les objections budgétaires en direct, et valider les prochaines étapes décisionnelles avec le DAF." />
 
@@ -176,7 +176,7 @@ const PropositionSection = () => {
           <p style={{ fontSize: 14, color: "rgba(0,48,53,0.65)", margin: 0, fontWeight: 400 }}>Chaque ligne révèle pourquoi le critère est décisif dans le cycle de vente.</p>
         </div>
 
-        <div className="reveal" style={{ marginBottom: 60, border: "1px solid rgba(0,48,53,0.15)", overflowX: "auto" }}>
+        <div className="reveal table-responsive" style={{ marginBottom: 60, border: "1px solid rgba(0,48,53,0.15)" }}>
           {/* En-tête — 6 colonnes */}
           <div style={{ display: "grid", gridTemplateColumns: "14% 11% 11% 11% 20% 33%", background: "#003035", minWidth: 900 }}>
             {[
@@ -235,7 +235,7 @@ const PropositionSection = () => {
         </div>
 
         {/* Conclusion de l'arbitrage */}
-        <div className="reveal" style={{ marginBottom: 60, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, background: "rgba(0,48,53,0.1)" }}>
+        <div className="reveal grid-2col" style={{ marginBottom: 60, gap: 2, background: "rgba(0,48,53,0.1)" }}>
           <div style={{ background: "#003035", padding: "44px 48px" }}>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFDC5A", marginBottom: 18 }}>// L'arbitrage stratégique</div>
             <h4 style={{ fontFamily: "'Fraunces', serif", fontSize: 22, fontWeight: 800, color: "#F8F7F3", margin: "0 0 20px", lineHeight: 1.3 }}>

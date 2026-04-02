@@ -25,77 +25,109 @@ export const EkodevLogoWhite = () => (
   </svg>
 );
 
-const Navbar = () => (
-  <nav style={{
-    position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-    height: 64, padding: "0 32px",
-    display: "flex", justifyContent: "space-between", alignItems: "center",
-    background: "#003035",
-  }}>
-    {/* Logo */}
-    <a href="#hero" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
-      <EkodevLogoWhite />
-    </a>
+const navLinks = [
+  { label: "Ciblage", href: "#ciblage" },
+  { label: "Radar ADEME", href: "#radar" },
+  { label: "Engagement", href: "#engagement" },
+  { label: "Cadrage", href: "#cadrage" },
+  { label: "Closing", href: "#closing" },
+  { label: "LTV", href: "#ltv" },
+];
 
-    {/* Nav links — style ekodev.com exact */}
-    <ul style={{ display: "flex", gap: 4, listStyle: "none", margin: 0, padding: 0, alignItems: "center" }}>
-      {[
-        { label: "Ciblage", href: "#ciblage" },
-        { label: "Radar ADEME", href: "#radar" },
-        { label: "Engagement", href: "#engagement" },
-        { label: "Cadrage", href: "#cadrage" },
-        { label: "Closing", href: "#closing" },
-        { label: "LTV", href: "#ltv" },
-      ].map((link) => (
-        <li key={link.href}>
-          <a href={link.href} style={{
-            display: "inline-block",
-            padding: "8px 14px",
-            fontSize: 13,
-            fontWeight: 400,
-            color: "rgba(255,255,255,0.85)",
-            textDecoration: "none",
-            transition: "color 0.2s",
-            whiteSpace: "nowrap",
+import { useState } from "react";
+
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <>
+      <nav style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
+        height: 64, padding: "0 32px",
+        display: "flex", justifyContent: "space-between", alignItems: "center",
+        background: "#003035",
+      }}>
+        {/* Logo */}
+        <a href="#hero" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
+          <EkodevLogoWhite />
+        </a>
+
+        {/* Nav links desktop */}
+        <ul className="nav-links" style={{ gap: 4, listStyle: "none", margin: 0, padding: 0, alignItems: "center" }}>
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a href={link.href} style={{
+                display: "inline-block", padding: "8px 14px", fontSize: 13, fontWeight: 400,
+                color: "rgba(255,255,255,0.85)", textDecoration: "none", transition: "color 0.2s", whiteSpace: "nowrap",
+              }}
+              onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#FFDC5A")}
+              onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "rgba(255,255,255,0.85)")}>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Right CTAs desktop */}
+        <div className="nav-ctas" style={{ alignItems: "center", gap: 8, flexShrink: 0 }}>
+          <a href="mailto:adamtelmat.pro@gmail.com" style={{
+            padding: "9px 20px", fontSize: 13, fontWeight: 500,
+            color: "#fff", background: "rgba(255,255,255,0.12)", textDecoration: "none", transition: "background 0.2s",
           }}
-          onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#FFDC5A")}
-          onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "rgba(255,255,255,0.85)")}>
-            {link.label}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.2)")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.12)")}>
+            Contact
           </a>
-        </li>
-      ))}
-    </ul>
+          <a href="mailto:adamtelmat.pro@gmail.com" style={{
+            padding: "9px 20px", fontSize: 13, fontWeight: 600,
+            color: "#003035", background: "#FFDC5A", textDecoration: "none", transition: "background 0.2s",
+          }}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#ffe97a")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#FFDC5A")}>
+            Nous rejoindre
+          </a>
+        </div>
 
-    {/* Right CTAs — exact ekodev.com style */}
-    <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
-      <a href="mailto:adamtelmat.pro@gmail.com" style={{
-        padding: "9px 20px", fontSize: 13, fontWeight: 500,
-        color: "#fff", background: "rgba(255,255,255,0.12)",
-        textDecoration: "none", transition: "background 0.2s",
-      }}
-      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.2)")}
-      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.12)")}>
-        Contact
-      </a>
-      <a href="mailto:adamtelmat.pro@gmail.com" style={{
-        padding: "9px 20px", fontSize: 13, fontWeight: 600,
-        color: "#003035", background: "#FFDC5A",
-        textDecoration: "none", transition: "background 0.2s",
-      }}
-      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#ffe97a")}
-      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#FFDC5A")}>
-        Nous rejoindre
-      </a>
-      {/* Globe icon */}
-      <div style={{ marginLeft: 8, color: "rgba(255,255,255,0.5)", cursor: "pointer", fontSize: 16 }}>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <circle cx="12" cy="12" r="10"/>
-          <ellipse cx="12" cy="12" rx="4" ry="10"/>
-          <path d="M2 12h20"/>
-        </svg>
-      </div>
-    </div>
-  </nav>
-);
+        {/* Hamburger mobile */}
+        <button className="nav-hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{
+          background: "none", border: "none", cursor: "pointer", padding: 8,
+          display: "none", flexDirection: "column", gap: 5, alignItems: "center",
+        }}>
+          <span style={{ display: "block", width: 24, height: 2, background: menuOpen ? "#FFDC5A" : "#F8F7F3", transition: "all 0.2s", transform: menuOpen ? "rotate(45deg) translateY(7px)" : "none" }} />
+          <span style={{ display: "block", width: 24, height: 2, background: "#F8F7F3", transition: "all 0.2s", opacity: menuOpen ? 0 : 1 }} />
+          <span style={{ display: "block", width: 24, height: 2, background: menuOpen ? "#FFDC5A" : "#F8F7F3", transition: "all 0.2s", transform: menuOpen ? "rotate(-45deg) translateY(-7px)" : "none" }} />
+        </button>
+      </nav>
+
+      {/* Mobile menu dropdown */}
+      {menuOpen && (
+        <div style={{
+          position: "fixed", top: 64, left: 0, right: 0, zIndex: 99,
+          background: "#002028", borderTop: "1px solid rgba(255,255,255,0.08)",
+          padding: "20px 24px 28px",
+          display: "flex", flexDirection: "column", gap: 4,
+        }}>
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} style={{
+              padding: "12px 0", fontSize: 16, fontWeight: 500,
+              color: "rgba(248,247,243,0.85)", textDecoration: "none",
+              borderBottom: "1px solid rgba(255,255,255,0.06)",
+            }}>
+              {link.label}
+            </a>
+          ))}
+          <div style={{ marginTop: 16, display: "flex", gap: 8 }}>
+            <a href="mailto:adamtelmat.pro@gmail.com" style={{
+              flex: 1, padding: "12px", textAlign: "center", fontSize: 13, fontWeight: 600,
+              color: "#003035", background: "#FFDC5A", textDecoration: "none",
+            }}>
+              Nous rejoindre
+            </a>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 export default Navbar;

@@ -256,6 +256,21 @@ const PropositionSection = () => {
           </div>
         </div>
 
+      {/* Citation clé - prochaine étape */}
+      <div className="reveal" style={{ margin: "60px auto 0", maxWidth: 860, padding: "0 clamp(20px,4vw,0px)" }}>
+        <div style={{ background: "#003035", border: "1px solid rgba(255,220,90,0.25)", borderLeft: "4px solid #FFDC5A", padding: "40px 48px", position: "relative" }}>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFDC5A", marginBottom: 20 }}>// Prochaine étape post-proposition</div>
+          <p style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(18px, 2.2vw, 24px)", fontStyle: "italic", fontWeight: 700, color: "#F8F7F3", lineHeight: 1.6, margin: "0 0 20px" }}>
+            "Je n'envoie jamais une proposition dans le vide."
+          </p>
+          <p style={{ fontSize: 16, color: "rgba(248,247,243,0.82)", lineHeight: 1.78, margin: 0, fontWeight: 400 }}>
+            Je fixe systématiquement un rendez-vous de restitution pour présenter l'offre de vive voix, défendre la valeur de l'accompagnement et traiter les questions en direct.
+            <br /><br />
+            <strong style={{ color: "#FFDC5A" }}>Un prospect accompagné jusqu'à la décision signe. Un prospect laissé seul avec un PDF disparaît.</strong>
+          </p>
+        </div>
+      </div>
+
       </section>
 
     </>

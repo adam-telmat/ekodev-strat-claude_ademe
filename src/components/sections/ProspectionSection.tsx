@@ -4,18 +4,18 @@ import { SectionHeader } from "./CibleSection";
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const seqSteps = [
-  { day: "J0", channel: "Détection", icon: "◎", color: "#9BC5C7", action: "Signal ADEME identifié", detail: "Bilan en retard ou Scope 3 vide — prospect qualifié automatiquement." },
+  { day: "J0", channel: "Détection", icon: "◎", color: "#9BC5C7", action: "Signal ADEME identifié", detail: "Bilan en retard ou Scope 3 vide, prospect qualifié automatiquement." },
   { day: "J1", channel: "LinkedIn", icon: "in", color: "#0A66C2", action: "Visite profil ciblé", detail: "Directeur QSE ou Directeur Administratif & Financier. Pas de pitch. Juste de la familiarité." },
   { day: "J3", channel: "Cold Email", icon: "✉", color: "#FFDC5A", action: "Email ultra-personnalisé", detail: "Basé sur la donnée ADEME brute. 5 lignes. Délivrabilité 98% (SPF, DKIM, DMARC configurés)." },
-  { day: "J7", channel: "Relance", icon: "↻", color: "#FFDC5A", action: "Angle ROI énergétique", detail: "Relance email — Financement Bpifrance Diag Décarbon'Action mis en avant." },
-  { day: "J10", channel: "Téléphone", icon: "☎", color: "#e85c6a", action: "Call de qualification", detail: "5 à 7 minutes. Script ADEME. Objectif unique : décrocher un rendez-vous de 20 minutes." },
+  { day: "J7", channel: "Relance", icon: "↻", color: "#FFDC5A", action: "Angle ROI énergétique", detail: "Relance email, financement Bpifrance Diag Décarbon'Action mis en avant." },
+  { day: "J10", channel: "Téléphone", icon: "☎", color: "#e85c6a", action: "Call de qualification", detail: "5 à 7 minutes. Script ADEME. Objectif unique : décrocher un rendez-vous de 15 minutes." },
 ];
 
 const callBeats = [
-  { timing: "0–15 sec", label: "Accroche Asymétrique", text: "Bonjour [Prénom], Adam Telmat du cabinet ekodev. Je vous appelle car j'ai analysé les données publiques de votre dernier BEGES de [Année]." },
-  { timing: "15–40 sec", label: "Le Point de Douleur", text: "Je vois que vous avez une forte empreinte industrielle, mais que votre Scope 3 n'est pas encore structuré — alors que la pression de la CSRD et de vos donneurs d'ordres s'accélère. Beaucoup perdent un temps considérable sur la collecte de données au lieu de se concentrer sur le plan d'action." },
+  { timing: "0–15 sec", label: "Accroche Asymétrique", text: "Bonjour [Prénom], Adam du cabinet ekodev. Je vous appelle car j'ai analysé les données publiques de votre dernier BEGES de [Année]." },
+  { timing: "15–40 sec", label: "Le Point de Douleur", text: "Je vois que vous avez une forte empreinte industrielle, mais que votre Scope 3 n'est pas encore structuré, alors que la pression de la CSRD et de vos donneurs d'ordres s'accélère. Beaucoup perdent un temps considérable sur la collecte de données au lieu de se concentrer sur le plan d'action." },
   { timing: "40–60 sec", label: "Proposition de Valeur", text: "Chez ekodev, notre métier c'est de cadrer votre périmètre, d'embarquer vos équipes, et de transformer cette contrainte réglementaire en une vraie feuille de route climat opérationnelle." },
-  { timing: "60–80 sec", label: "L'Appel à l'Action", text: "L'objectif de mon appel n'est pas de vous vendre une mission aujourd'hui. C'est de prendre 20 minutes pour comprendre où vous en êtes dans la préparation de votre prochaine échéance. Vous êtes disponible mardi à 10h ou jeudi à 14h ?" },
+  { timing: "60–80 sec", label: "L'Appel à l'Action", text: "L'objectif de mon appel n'est pas de vous vendre une mission aujourd'hui. C'est de prendre 15 minutes pour comprendre où vous en êtes dans la préparation de votre prochaine échéance. Vous êtes disponible mardi à 10h ou jeudi à 14h ?" },
 ];
 
 const objections = [
@@ -29,7 +29,7 @@ const objections = [
   },
   {
     q: "Pas de budget cette année.",
-    a: "Ne pas anticiper vous coûtera plus cher : perte de points dans les appels d'offres B2B, inefficacités énergétiques non détectées, exposition réglementaire croissante. De plus, nos missions peuvent s'inscrire dans le dispositif Diag Décarbon'Action Bpifrance — jusqu'à 6 000€ de subvention. Coût net réel : entre 2 000 et 9 000€.",
+    a: "Ne pas anticiper vous coûtera plus cher : perte de points dans les appels d'offres B2B, inefficacités énergétiques non détectées, exposition réglementaire croissante. De plus, nos missions peuvent s'inscrire dans le dispositif Diag Décarbon'Action Bpifrance, jusqu'à 6 000€ de subvention.",
   },
   {
     q: "On n'est pas concernés par la CSRD.",
@@ -70,15 +70,15 @@ const ProspectionSection = () => {
   const proofItems = [
     {
       src: "/ekodev-agent-ia-final.png",
-      url: "app.gojiberry.ai — ekodev agent IA — ICP Configuration",
-      tag: "// AGENT IA — CIBLAGE AUTOMATISÉ PACA",
+      url: "app.gojiberry.ai / ekodev agent IA / ICP Configuration",
+      tag: "// AGENT IA : CIBLAGE AUTOMATISÉ PACA",
       title: "Agent IA Gojiberry",
       desc: "Configuration de l'agent avec les intitulés de poste exacts (Directeur QSE, Directeur RSE, Directeur Général), les 8 secteurs industriels ciblés en région Sud, et le mode High Precision activé. Seuls les prospects à fort potentiel sortent du filtre.",
     },
     {
       src: "/ekodev-sequence-multicanal-v2.png",
-      url: "app.lemlist.com — Séquence multicanale ekodev PACA",
-      tag: "// SÉQUENCE — DÉCLENCHÉE SUR SIGNAL ADEME",
+      url: "app.lemlist.com / Séquence multicanale ekodev PACA",
+      tag: "// SÉQUENCE : DÉCLENCHÉE SUR SIGNAL ADEME",
       title: "Séquence Multicanale",
       desc: "LinkedIn + Email + Appel avec branchement conditionnel : si l'invitation est acceptée, la branche LinkedIn s'active ; sinon, la relance email prend le relai. Toute interaction humaine détectée arrête la séquence instantanément.",
     },
@@ -90,7 +90,7 @@ const ProspectionSection = () => {
 
         <SectionHeader num="02" phase="Phase 2"
           title={<>Séquence d'Engagement<br />&amp; Conversion</>}
-          sub="Une approche multicanale séquencée — du signal d'intention au rendez-vous qualifié. Automatisée via Lemlist et Gojiberry. Délivrabilité configurée : SPF, DKIM, DMARC." />
+          sub="Une approche multicanale séquencée, du signal d'intention au rendez-vous qualifié. Automatisée via Lemlist et Gojiberry. Délivrabilité configurée : SPF, DKIM, DMARC." />
 
         {/* ── TIMELINE ───────────────────────────────────────────────────────── */}
         <div className="reveal" style={{ marginBottom: 72 }}>
@@ -169,7 +169,7 @@ const ProspectionSection = () => {
             }}>
               <div style={{ position: "absolute", top: 0, left: `calc(${activeStep * 20 + 10}% - 10px)`, width: 0, height: 0, borderLeft: "10px solid transparent", borderRight: "10px solid transparent", borderBottom: "10px solid #003035" }} />
               <div style={{ display: "flex", alignItems: "baseline", gap: 16 }}>
-                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: seqSteps[activeStep].color, letterSpacing: "0.15em", textTransform: "uppercase" as const }}>{seqSteps[activeStep].day} — {seqSteps[activeStep].channel}</span>
+                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: seqSteps[activeStep].color, letterSpacing: "0.15em", textTransform: "uppercase" as const }}>{seqSteps[activeStep].day} · {seqSteps[activeStep].channel}</span>
               </div>
               <div style={{ fontSize: 15, color: "rgba(248,247,243,0.85)", lineHeight: 1.7, marginTop: 8, fontWeight: 400 }}>{seqSteps[activeStep].detail}</div>
             </div>
@@ -190,7 +190,7 @@ const ProspectionSection = () => {
         <div style={{ display: "flex", flexDirection: "column" as const, gap: 48 }}>
           {proofItems.map(({ src, tag, title, desc }, idx) => (
             <div key={src}>
-              <img src={src} alt={title} className="screenshot-img" style={{ width: idx === 0 ? "70%" : "22%", maxWidth: "100%", display: "block", height: "auto", margin: "0 auto" }} />
+              <img src={src} alt={title} className="screenshot-img" style={{ width: idx === 0 ? "70%" : "22%", maxWidth: "100%", display: "block", height: "auto", margin: "0 auto", imageRendering: idx === 0 ? "auto" : "auto", WebkitFilter: "none", filter: "none", transform: "translateZ(0)", backfaceVisibility: "hidden" as const }} />
               {/* Caption sous */}
               <div style={{ maxWidth: 1200, margin: "0 auto", padding: "20px clamp(16px,5vw,60px) 0" }}>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "rgba(0,48,53,0.4)", marginBottom: 8 }}>{tag}</div>
@@ -229,7 +229,7 @@ const ProspectionSection = () => {
                 La machine génère l'attention. L'humain ferme.
               </div>
               <p style={{ fontSize: 15, color: "rgba(248,247,243,0.78)", lineHeight: 1.75, margin: "0 0 20px", fontWeight: 400, maxWidth: 700 }}>
-                Dans la vraie vente B2B, l'automatisation ne sert pas à closer, elle sert à générer des signaux. Techniquement, la séquence (Lemlist/Gojiberry) est programmée pour ne s'arrêter automatiquement qu'à une seule condition : une réponse directe du prospect. En parallèle, je monitore en temps réel les signaux faibles — ouvertures multiples de l'email, clics sur un lien, acceptation de l'invitation LinkedIn.
+                Dans la vraie vente B2B, l'automatisation ne sert pas à closer, elle sert à générer des signaux. Techniquement, la séquence (Lemlist/Gojiberry) est programmée pour ne s'arrêter automatiquement qu'à une seule condition : une réponse directe du prospect. En parallèle, je monitore en temps réel les signaux faibles : ouvertures multiples de l'email, clics sur un lien, acceptation de l'invitation LinkedIn.
               </p>
               <p style={{ fontSize: 15, color: "rgba(248,247,243,0.78)", lineHeight: 1.75, margin: 0, fontWeight: 400, maxWidth: 700 }}>
                 Si je détecte qu'un Directeur Administratif et Financier ou un Directeur QSE interagit fortement avec le contenu sans répondre, je prends l'initiative de pauser manuellement sa séquence et je déclenche un appel à chaud au moment exact où ekodev est sur son écran. <strong style={{ color: "#FFDC5A", fontWeight: 600 }}>L'outil qualifie l'attention, l'humain gère la relation.</strong>
@@ -245,20 +245,20 @@ const ProspectionSection = () => {
               {["#ff5f57", "#ffbd2e", "#28c840"].map(c => <span key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c, display: "inline-block" }} />)}
             </div>
             <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: "rgba(248,247,243,0.55)" }}>
-              Objet : <strong style={{ color: "rgba(255,220,90,0.8)" }}>[Entreprise]</strong> — Votre BEGES <strong style={{ color: "rgba(255,220,90,0.8)" }}>[Année]</strong> arrive à échéance en 2026
+              Objet : <strong style={{ color: "rgba(255,220,90,0.8)" }}>[Entreprise]</strong>, votre BEGES <strong style={{ color: "rgba(255,220,90,0.8)" }}>[Année]</strong> arrive à échéance en 2026
             </span>
             <div style={{ marginLeft: "auto", fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: "rgba(155,197,199,0.5)", letterSpacing: "0.1em" }}>DÉLIVRABILITÉ 98%</div>
           </div>
           <div style={{ padding: "40px 48px", fontSize: 15, lineHeight: 2, color: "rgba(248,247,243,0.8)", fontWeight: 400 }}>
             Bonjour <Hl>[Prénom]</Hl>,
             <br /><br />
-            En analysant les données publiques de l'ADEME, j'ai vu que le dernier bilan GES de <Hl>[Entreprise]</Hl> date de <Hl>[Année]</Hl>. Avec le cycle réglementaire de 4 ans, votre prochaine échéance approche — et les nouvelles exigences de la CSRD renforcent considérablement les attentes sur le Scope 3, qui n'apparaît pas encore dans votre déclaration publique.
+            En analysant les données publiques de l'ADEME, j'ai vu que le dernier bilan GES de <Hl>[Entreprise]</Hl> date de <Hl>[Année]</Hl>. Avec le cycle réglementaire de 4 ans, votre prochaine échéance approche. Les nouvelles exigences de la CSRD renforcent considérablement les attentes sur le Scope 3, qui n'apparaît pas encore dans votre déclaration publique.
             <br /><br />
-            Chez ekodev (groupe EPSA, B Corp certifié), on accompagne les filiales industrielles de la région Sud sur exactement ce type de mise à jour — en intégrant le Scope 3, en structurant une trajectoire de décarbonation, et en activant les synergies énergie du groupe EPSA pour transformer ce coût en levier d'optimisation.
+            Chez ekodev (groupe EPSA, B Corp certifié), on accompagne les filiales industrielles de la région Sud sur exactement ce type de mise à jour : intégration du Scope 3, structuration d'une trajectoire de décarbonation, et activation des synergies énergie du groupe EPSA pour transformer ce coût en levier d'optimisation.
             <br /><br />
-            Ça vaut un échange de 20 minutes pour cadrer votre contexte ?
+            Ça vaut un échange de 15 minutes pour cadrer votre contexte ?
             <br /><br />
-            <span style={{ color: "#F8F7F3", fontWeight: 600 }}>Adam Telmat</span> — ekodev Marseille
+            <span style={{ color: "#F8F7F3", fontWeight: 600 }}>Adam</span>, ekodev Marseille
           </div>
         </div>
 
@@ -267,7 +267,7 @@ const ProspectionSection = () => {
           <div style={{ background: "#003035", padding: "15px 28px", display: "flex", alignItems: "center", gap: 12 }}>
             <span style={{ display: "inline-block", width: 8, height: 8, borderRadius: "50%", background: "#e85c6a", animation: "pulse 1.5s infinite" }} />
             <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: "rgba(248,247,243,0.7)", letterSpacing: "0.12em", textTransform: "uppercase" as const }}>
-              Script téléphonique — 80 secondes chrono — Objectif : rendez-vous de 20 minutes
+              Script téléphonique · 80 secondes chrono · Objectif : rendez-vous de 15 minutes
             </span>
           </div>
           <div style={{ padding: "8px 0" }}>

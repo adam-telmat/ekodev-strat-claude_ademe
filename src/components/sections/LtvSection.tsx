@@ -2,9 +2,9 @@ import { useEffect, useRef } from "react";
 import { SectionHeader } from "./CibleSection";
 
 const ltvCards = [
-  { label: "Année 1 — Entrée", amount: "12–15k€", amountColor: "rgba(248,247,243,0.88)", barColor: "rgba(255,255,255,0.15)", missions: "Bilan carbone (scopes 1, 2, 3)\nDiagnostic RSE initial\nAteliers de sensibilisation" },
-  { label: "Année 2 — Développement", amount: "25–35k€", amountColor: "#9BC5C7", barColor: "#9BC5C7", missions: "Stratégie climat + feuille de route 2030\nAccompagnement CSRD\nPlan d'action et indicateurs" },
-  { label: "Année 3 — Récurrence", amount: "40–50k€", amountColor: "#FFDC5A", barColor: "#FFDC5A", missions: "Reporting annuel + mise à jour bilan\nFormation équipes + fresques\nPlan mobilité employeur" },
+  { label: "Année 1 · Entrée", amount: "12–15k€", amountColor: "rgba(248,247,243,0.88)", barColor: "rgba(255,255,255,0.15)", missions: "Bilan carbone (scopes 1, 2, 3)\nDiagnostic RSE initial\nAteliers de sensibilisation" },
+  { label: "Année 2 · Développement", amount: "25–35k€", amountColor: "#9BC5C7", barColor: "#9BC5C7", missions: "Stratégie climat + feuille de route 2030\nAccompagnement CSRD\nPlan d'action et indicateurs" },
+  { label: "Année 3 · Récurrence", amount: "40–50k€", amountColor: "#FFDC5A", barColor: "#FFDC5A", missions: "Reporting annuel + mise à jour bilan\nFormation équipes + fresques\nPlan mobilité employeur" },
 ];
 
 const crossSells = [
@@ -29,7 +29,7 @@ const LtvSection = () => {
     <section id="ltv" ref={ref} style={{ background: "#003035", color: "#F8F7F3", padding: "clamp(60px,10vw,120px) clamp(20px,5vw,60px)" }}>
       <SectionHeader num="05" phase="La vision long terme"
         title={<>Le bilan carbone<br />comme cheval de Troie.</>}
-        sub="Le bilan carbone n'est pas l'objectif. C'est le pied dans la porte. Un grand compte signé ne repart pas — il revient chaque année avec de nouveaux chantiers. Et chaque prospect ekodev devient un lead qualifié pour le groupe EPSA."
+        sub="Le bilan carbone n'est pas l'objectif. C'est le pied dans la porte. Un grand compte signé ne repart pas : il revient chaque année avec de nouveaux chantiers. Et chaque prospect ekodev devient un lead qualifié pour le groupe EPSA."
         dark />
 
       {/* LTV Grid */}
@@ -47,7 +47,7 @@ const LtvSection = () => {
       {/* Total bar */}
       <div className="reveal ltv-total" style={{ background: "rgba(255,220,90,0.06)", border: "1px solid rgba(255,220,90,0.15)", padding: "36px clamp(20px,5vw,60px)", display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 60 }}>
         <div>
-          <div style={{ fontSize: 16, color: "rgba(248,247,243,0.88)", fontWeight: 400 }}>LTV client grand compte — 3 ans</div>
+          <div style={{ fontSize: 16, color: "rgba(248,247,243,0.88)", fontWeight: 400 }}>LTV client grand compte sur 3 ans</div>
           <div style={{ fontSize: 13, color: "rgba(248,247,243,0.45)", fontStyle: "italic", marginTop: 4 }}>vs PME one-shot : 8–12k€ et on recommence à chasser</div>
         </div>
         <div style={{ fontFamily: "'Fraunces', serif", fontSize: 60, fontWeight: 900, color: "#FFDC5A", fontStyle: "italic" }}>80–100k€</div>

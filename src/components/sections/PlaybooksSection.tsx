@@ -24,18 +24,18 @@ En analysant les données publiques de l'ADEME, j'ai noté que le bilan de [Entr
 
 Notre cabinet ekodev décharge les industriels de cette collecte complexe pour structurer une donnée finançable. Avez-vous 15 minutes mardi pour échanger sur vos méthodes de collecte actuelles ?
 
-Adam Telmat — ekodev Marseille`,
+Adam, ekodev Marseille`,
   },
   eti: {
     cible: "Directeur Administratif & Financier / Directeur Général",
-    objet: "[Entreprise] — Retard sur votre obligation BEGES",
+    objet: "[Entreprise], retard sur votre obligation BEGES",
     corps: `Bonjour [Prénom],
 
 Sauf erreur sur data.gouv, la dernière mise à jour de votre bilan carbone date de [Année]. Vous avez dépassé le cycle légal de 4 ans. C'est un point bloquant croissant pour vos partenaires financiers et vos clients B2B.
 
 La bonne nouvelle : la remise en conformité de votre ETI est éligible au Diag Décarbon'Action (subvention Bpifrance). Chez ekodev, on s'occupe du dossier de financement et de 90% du travail opérationnel. Peut-on bloquer 15 minutes jeudi pour valider votre éligibilité ?
 
-Adam Telmat — ekodev Marseille`,
+Adam, ekodev Marseille`,
   },
   renouvellement: {
     cible: "Directeur QSE / Directeur de Site",
@@ -46,7 +46,7 @@ Votre précédent bilan GES date de 2022. Vous entrez donc cette année dans vot
 
 Le groupe ekodev/EPSA vous propose de lier cette mise à jour légale à un audit de vos factures énergétiques (Enoptea) pour autofinancer votre transition. Un point de 15 minutes la semaine prochaine pour cadrer les synergies possibles vous intéresse-t-il ?
 
-Adam Telmat — ekodev Marseille`,
+Adam, ekodev Marseille`,
   },
 };
 
@@ -128,7 +128,7 @@ const PlaybooksSection = () => {
     <section id="playbooks" ref={ref} style={{ padding: "clamp(60px,10vw,120px) 0", background: "#003035" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 clamp(16px,5vw,60px)" }}>
 
-        <SectionHeader num="02b" phase="Phase 2 — Playbooks"
+        <SectionHeader num="02b" phase="Phase 2 : Playbooks"
           dark
           title={<>Les Playbooks de Prospection<br /><em style={{ fontStyle: "italic", color: "#9BC5C7" }}>Segmentés</em></>}
           sub="Chaque signal ADEME appelle un message différent. Voici comment j'adapte l'approche email et téléphonique en fonction du profil détecté par le radar." />

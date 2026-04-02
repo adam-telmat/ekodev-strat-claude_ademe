@@ -68,23 +68,15 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Right CTAs desktop */}
+        {/* CTA unique desktop */}
         <div className="nav-ctas" style={{ alignItems: "center", gap: 8, flexShrink: 0 }}>
-          <a href="mailto:adamtelmat.pro@gmail.com" style={{
-            padding: "9px 20px", fontSize: 13, fontWeight: 500,
-            color: "#fff", background: "rgba(255,255,255,0.12)", textDecoration: "none", transition: "background 0.2s",
-          }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.2)")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.12)")}>
-            Contact
-          </a>
-          <a href="mailto:adamtelmat.pro@gmail.com" style={{
+          <a href="#contact" style={{
             padding: "9px 20px", fontSize: 13, fontWeight: 600,
             color: "#003035", background: "#FFDC5A", textDecoration: "none", transition: "background 0.2s",
           }}
           onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#ffe97a")}
           onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#FFDC5A")}>
-            Nous rejoindre
+            Contacter Adam
           </a>
         </div>
 
@@ -117,11 +109,11 @@ const Navbar = () => {
             </a>
           ))}
           <div style={{ marginTop: 16, display: "flex", gap: 8 }}>
-            <a href="mailto:adamtelmat.pro@gmail.com" style={{
+            <a href="#contact" onClick={() => setMenuOpen(false)} style={{
               flex: 1, padding: "12px", textAlign: "center", fontSize: 13, fontWeight: 600,
               color: "#003035", background: "#FFDC5A", textDecoration: "none",
             }}>
-              Nous rejoindre
+              Contacter Adam
             </a>
           </div>
         </div>

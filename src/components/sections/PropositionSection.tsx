@@ -5,16 +5,16 @@ const frameworkCards = [
   { num: "01", title: "Périmètre & Complexité", questions: [
     "Combien d'entités juridiques et de sites de production sont concernés ?",
     "Quelle est la part de votre activité à l'international (supply chain) versus France ?",
-    "Quels sont les postes d'émissions que vous pressentez comme critiques sur votre Scope 3 — achats, fret maritime, fin de vie des produits ?",
+    "Quels sont les postes d'émissions critiques sur votre Scope 3 : achats, fret maritime, fin de vie des produits ?",
   ]},
   { num: "02", title: "Gouvernance & Maturité Data", questions: [
-    "Qui est le propriétaire historique de la donnée RSE en interne — Achats, Ressources Humaines, Finance ?",
+    "Qui est le propriétaire historique de la donnée RSE en interne : Achats, Ressources Humaines, Finance ?",
     "Disposez-vous d'un ERP récent ou d'un SIRH pour extraire facilement les flux physiques et monétaires ?",
     "Qui portera le projet au Comité de Direction pour valider la future feuille de route climat ?",
   ]},
   { num: "03", title: "Enjeux Business", questions: [
     "Quel est le déclencheur profond aujourd'hui : conformité pure, pression d'un donneur d'ordre majeur, ou stratégie d'optimisation énergétique ?",
-    "Avez-vous une deadline réglementaire ou une réponse à appel d'offres qui conditionne notre rétroplanning ?",
+    "Avez-vous une deadline réglementaire ou un appel d'offres qui conditionne notre rétroplanning ?",
     "Le groupe (maison mère) vous a-t-il fixé des objectifs SBTi ou de réduction carbone à consolider ?",
   ]},
   { num: "04", title: "Budget & Financement", questions: [

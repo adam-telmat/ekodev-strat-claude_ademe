@@ -236,7 +236,7 @@ const RadarSection = () => {
       tag: "Pilier 02",
       title: "Détection des Failles",
       sub: "L'Algorithme Réglementaire",
-      text: "L'IA croise les dates de publication avec l'obligation de renouvellement (cycle de 4 ans) et scanne les incohérences — ex : Scope 3 non renseigné pour les industries lourdes.",
+      text: "L'IA croise les dates de publication avec l'obligation de renouvellement (cycle de 4 ans) et scanne les incohérences, ex : Scope 3 non renseigné pour les industries lourdes.",
     },
     {
       icon: <IconEnrich />,
@@ -253,7 +253,7 @@ const RadarSection = () => {
       dot: "rgba(220,53,69,0.2)",
       label: "Retardataires",
       badge: "Retard légal",
-      desc: "Entreprises dont le dernier BEGES date de 2018 ou 2020. Un besoin urgent d'accompagnement — et une exposition légale immédiate.",
+      desc: "Entreprises dont le dernier BEGES date de 2018 ou 2020. Un besoin urgent d'accompagnement, et une exposition légale immédiate.",
     },
     {
       color: "#FFDC5A",
@@ -314,7 +314,7 @@ const RadarSection = () => {
             fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.02em",
             color: "#F8F7F3", marginBottom: 28, maxWidth: 780,
           }}>
-            Phase 1 — Transformer l'Open Data<br />
+            Phase 1 : Transformer l'Open Data<br />
             <em style={{ fontStyle: "italic", color: "#9BC5C7" }}>en Pipeline Commercial Automatisé.</em>
           </h2>
 

@@ -75,6 +75,15 @@
     box-sizing: border-box;
   }
 
+  /* Rendu net des images */
+  img {
+    image-rendering: auto;
+    -webkit-font-smoothing: subpixel-antialiased;
+    transform: translateZ(0);
+    will-change: auto;
+    max-width: 100%;
+  }
+
   p {
     font-size: 15px;
     font-weight: 400;

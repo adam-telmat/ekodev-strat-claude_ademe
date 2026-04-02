@@ -5,6 +5,13 @@ export const heroMeta = [
   { label: "Disponible", value: "Avril 2026", highlight: true },
 ];
 
+export const heroPhases = [
+  { num: "01", label: "Ciblage Asymétrique", sub: "Data ADEME + signaux BEGES" },
+  { num: "02", label: "Engagement & Conversion", sub: "Séquence multicanale + script" },
+  { num: "03", label: "Qualification", sub: "Framework de découverte" },
+  { num: "04", label: "Proposition & Closing", sub: "Propal + soutenance" },
+];
+
 export const icpCards = [
   { icon: "🏭", title: "Industrie manufacturière", desc: "Zone Fos-sur-Mer / Berre — plus grande zone industrielle de France hors Paris. Sous-traitants de groupes cotés soumis à CSRD en cascade.", priority: 1 },
   { icon: "🏗️", title: "BTP / Construction", desc: "Filiales régionales Vinci, Bouygues, Eiffage. La maison mère a son Big Four — la filiale locale doit produire ses propres données carbone.", priority: 1 },
@@ -12,6 +19,38 @@ export const icpCards = [
   { icon: "🌾", title: "Agroalimentaire", desc: "Filiales de groupes cotés en PACA. Pression des donneurs d'ordres GMS qui exigent un bilan carbone fournisseur.", priority: 2 },
   { icon: "🏥", title: "Santé / Pharma", desc: "Groupes hospitaliers privés régionaux (Elsan, Almaviva). Le système de soins = 8% des émissions nationales. Enjeu RH fort.", priority: 2 },
   { icon: "🚛", title: "Logistique / Transport", desc: "Marseille = 1er port de France. Scope 3 massif. Filiales logistiques de groupes avec obligation mobilité employeur.", priority: 3 },
+];
+
+export const targetingSignals = [
+  {
+    num: "01",
+    title: "Signal d'échéance théorique",
+    desc: "Les entreprises dont le dernier bilan date de 2018, 2020 ou 2022 doivent programmer un renouvellement (cycle de 4 ans). L'échéance légale est identifiable dans la base BEGES.",
+    tag: "Urgence réglementaire",
+    color: "red" as const,
+  },
+  {
+    num: "02",
+    title: "Déficit de Scope 3",
+    desc: "Les grands groupes ayant déclaré des millions de tonnes en Scope 1 & 2, mais dont le Scope 3 (chaîne de valeur) est à zéro ou non renseigné. Écart probable avec les attentes CSRD.",
+    tag: "Non-conformité CSRD",
+    color: "orange" as const,
+  },
+];
+
+export const sponsorTypes = [
+  {
+    icon: "💼",
+    role: "Sponsor Économique",
+    personas: "DAF / DG",
+    angle: "Justifier l'investissement face au risque de perte d'appels d'offres — pression des donneurs d'ordres.",
+  },
+  {
+    icon: "⚙️",
+    role: "Sponsor Métier",
+    personas: "Dir. QSE · Resp. RSE · Dir. de Site",
+    angle: "Apporter de la sérénité technique face à la complexité de la collecte des données Scope 3.",
+  },
 ];
 
 export const signals = [
@@ -31,34 +70,55 @@ export const personas = [
 ];
 
 export const flowSteps = [
-  { num: "01", title: "Identification cible", desc: "Scoring des filiales industrielles PACA via signaux d'achat LinkedIn + Bodacc" },
-  { num: "02", title: "Qualification", desc: "Enrichissement des contacts, validation du budget et du timing réglementaire" },
-  { num: "03", title: "Prise de RDV", desc: "Séquence multicanale email + LinkedIn + téléphone sur 14 jours" },
-  { num: "04", title: "Proposition", desc: "Proposition sur mesure avec vision LTV 3 ans et financement BpiFrance" },
+  { num: "01", title: "Signal BEGES détecté", desc: "Base ADEME analysée en temps réel — échéance 4 ans ou Scope 3 = 0 détecté" },
+  { num: "02", title: "Enrichissement contact", desc: "Visite LinkedIn du Dir. QSE / DAF + validation taille / CA / secteur" },
+  { num: "03", title: "Séquence multicanale", desc: "Email ultra-personnalisé sur la donnée publique → relance tel 5-7 min" },
+  { num: "04", title: "Proposition & Closing", desc: "Soutenance en direct — pas d'envoi PDF à l'aveugle" },
 ];
 
 export const systemCards = [
-  { icon: "🎯", title: "Sourcing des prospects", desc: "Liste qualifiée de 80 à 120 filiales industrielles PACA. Scoring par signaux d'achat : recrutement RSE, CSRD, nouveau DG, salon.", tools: ["LinkedIn Sales Nav", "Pappers", "Bodacc"], num: "01" },
-  { icon: "📊", title: "CRM & pipeline", desc: "Chaque prospect entre dans un pipeline structuré avec statut, température, et prochaine action. Reporting hebdomadaire automatisé.", tools: ["HubSpot / Pipedrive", "Notion", "Google Sheets"], num: "02" },
-  { icon: "📧", title: "Séquences automatisées", desc: "Templates email personnalisés + relances automatiques. Chaque séquence est testée, mesurée et optimisée sur les taux d'ouverture.", tools: ["Lemlist / La Growth Machine", "Calendly"], num: "03" },
-  { icon: "📈", title: "Veille & signaux", desc: "Alertes automatiques sur les mouvements des prospects : recrutement, publication, levée de fonds. Permet d'intervenir au bon moment.", tools: ["Google Alerts", "LinkedIn", "Societeinfo"], num: "04" },
+  {
+    icon: "🗄️",
+    title: "Base BEGES · data.ademe.fr",
+    desc: "Workflow d'analyse Open Data ADEME en temps réel. Filtrage PACA/AURA, scoring par signal légal (échéance + Scope 3 = 0). 20 prospects qualifiés dans cette démo.",
+    tools: ["data.ademe.fr", "Python / pandas", "CSV export"],
+    num: "01",
+  },
+  {
+    icon: "📊",
+    title: "CRM & Pipeline",
+    desc: "Chaque prospect entre dans un pipeline structuré avec statut, température, signal d'achat détecté et prochaine action. Reporting hebdomadaire pour Yves.",
+    tools: ["HubSpot", "Notion", "Google Sheets"],
+    num: "02",
+  },
+  {
+    icon: "📧",
+    title: "Séquences personnalisées",
+    desc: "Cold emails ultra-personnalisés sur la donnée BEGES publique. Pas de template générique — chaque email cite l'année du bilan et le Scope 3 manquant de l'entreprise.",
+    tools: ["Lemlist", "La Growth Machine", "Calendly"],
+    num: "03",
+  },
+  {
+    icon: "📈",
+    title: "Veille continue",
+    desc: "Alertes automatiques : nouveau Responsable RSE recruté, appel d'offres CSRD, levée de fonds. L'intervenir au bon moment = taux de réponse x3.",
+    tools: ["Google Alerts", "LinkedIn Jobs", "Societeinfo"],
+    num: "04",
+  },
 ];
 
 export const proofStats = [
-  { num: "80–120", label: "Prospects qualifiés dans le pipe initial" },
-  { num: "15–20%", label: "Taux de conversion email B2B industrie" },
-  { num: "8 sem.", label: "De la signature au livrable final" },
-  { num: "6 000€", label: "Financement BpiFrance Diag Décarbon'Action" },
+  { num: "20", label: "Prospects issus du registre BEGES dans cette démo" },
+  { num: "15–20%", label: "Taux de réponse attendu B2B industrie (séquence personnalisée)" },
+  { num: "8 sem.", label: "De la signature au livrable final bilan carbone" },
+  { num: "6 000€", label: "Financement BpiFrance Diag Décarbon'Action éligible" },
 ];
 
 export const sequenceSteps = [
-  { day: "J0", channel: "LinkedIn", action: "Visite de profil + connexion personnalisée", detail: "Mentionner un signal d'achat détecté" },
-  { day: "J1", channel: "Email #1", action: "Email d'approche — template ci-dessous", detail: "Objet : CSRD + nom de l'entreprise" },
-  { day: "J3", channel: "LinkedIn", action: "Commentaire intelligent sur un post du prospect", detail: "Apporter de la valeur, pas de la promo" },
-  { day: "J5", channel: "Téléphone", action: "Appel de 2 min — script ci-dessous", detail: "Référence à l'email envoyé" },
-  { day: "J7", channel: "Email #2", action: "Relance avec cas client même secteur", detail: "Preuve sociale + résultat concret" },
-  { day: "J10", channel: "LinkedIn", action: "Message vocal LinkedIn (60 sec max)", detail: "Plus personnel, taux de réponse +300%" },
-  { day: "J14", channel: "Email #3", action: "Email de rupture — dernière chance", detail: "\"Je ne vais plus vous relancer. Voici ce que vous ratez.\"" },
+  { day: "01", channel: "Identification du signal", action: "Détection via base BEGES", detail: "Bilan 2022 à renouveler, ou Scope 3 = 0 malgré S1+S2 élevés" },
+  { day: "02", channel: "LinkedIn", action: "Visite du profil Dir. QSE / DAF", detail: "Créer de la familiarité avant tout contact direct" },
+  { day: "03", channel: "Cold Email", action: "Email ultra-personnalisé (basé sur la data publique)", detail: "Accroche sur le signal détecté, pas sur ekodev" },
+  { day: "04", channel: "Téléphone", action: "Relance téléphonique — call de qualification 5-7 min", detail: "Script pitch consultant — voir ci-dessous" },
 ];
 
 export const emailTemplate = {
@@ -79,36 +139,107 @@ Adam Telmat — Business Developer, ekodev Marseille`,
 };
 
 export const phoneScript = [
-  { time: "0–15 sec", text: "\"Bonjour [Prénom], Adam de chez ekodev — je ne vous dérange pas 2 minutes ?\"" },
-  { time: "15–35 sec", text: "\"Je vous contacte suite à mon email sur la directive CSRD. Avec l'obligation de bilan carbone qui arrive en 2026 pour les entreprises de votre taille, on voit beaucoup de filiales industrielles en région Sud qui se retrouvent en retard sur le sujet.\"" },
-  { time: "35–65 sec", text: "\"Est-ce que vous avez déjà réalisé un bilan carbone ? Avez-vous une personne dédiée sur ce sujet en interne ?\" — Écoute active." },
-  { time: "65–80 sec", text: "\"Ce que je propose : un échange de 30 min pour vous présenter comment on a accompagné [client même secteur]. Mardi 10h ou jeudi 14h, qu'est-ce qui vous convient ?\"" },
+  {
+    time: "Accroche",
+    text: "\"Bonjour [Prénom], Adam Telmat du cabinet ekodev. Je vous appelle car j'ai analysé les données publiques de votre dernier BEGES de [Année].\"",
+  },
+  {
+    time: "Diagnostic",
+    text: "\"Je vois que vous avez une forte empreinte industrielle, mais que votre Scope 3 n'est pas encore totalement structuré, alors que la pression de la CSRD et de vos donneurs d'ordres s'accélère.\"",
+  },
+  {
+    time: "Problème commun",
+    text: "\"La plupart des acteurs de votre secteur savent qu'ils doivent mettre à jour leur trajectoire, mais ils perdent un temps fou sur la collecte de données au lieu de se concentrer sur le plan d'action.\"",
+  },
+  {
+    time: "Valeur ekodev",
+    text: "\"Chez ekodev, notre métier ce n'est pas juste de vous fournir un logiciel de calcul. C'est de cadrer votre périmètre, d'embarquer vos équipes et de transformer cette contrainte réglementaire en une vraie feuille de route climat opérationnelle.\"",
+  },
+  {
+    time: "CTA (closing)",
+    text: "\"L'objectif de mon appel n'est pas de vous vendre une mission aujourd'hui, mais de prendre 20 minutes mardi prochain pour comprendre où vous en êtes dans la préparation de votre prochaine échéance. Êtes-vous disponible mardi à 10h ?\"",
+  },
 ];
 
 export const objections = [
-  { q: "\"C'est trop cher, on n'a pas le budget.\"", a: "BpiFrance finance jusqu'à 6 000€ via le Diag Décarbon'Action. Et nos clients économisent en moyenne 2 à 3 fois le coût de la mission en coûts énergétiques la première année via les synergies avec Enoptea." },
-  { q: "\"On peut le faire avec Greenly ou Sami, c'est moins cher.\"", a: "Ces outils mesurent. ekodev transforme. Un logiciel ne mène pas vos ateliers internes, ne gère pas votre scope 3 terrain, et n'est pas auditable CSRD. 70% des projets logiciels carbone s'essoufflent sans expert dédié." },
-  { q: "\"On n'est pas concernés par la CSRD.\"", a: "Même hors obligation directe, vos clients grands comptes vont vous demander vos données carbone pour leur propre reporting. Les banques et assureurs conditionnent déjà leurs financements à un bilan ESG." },
-  { q: "\"On n'a pas le temps ni les ressources.\"", a: "C'est exactement pour ça qu'on est là. On prend en charge 90% du travail. Votre équipe donne 2 à 3 journées sur 8 semaines. Notre méthodologie est rodée." },
+  {
+    q: "\"On regarde déjà des plateformes comme Greenly ou Sami.\"",
+    a: "Ces outils SaaS sont excellents pour mesurer. Mais un outil ne décide pas à votre place. Dès qu'il faut cadrer un périmètre complexe (multi-sites), traiter le Scope 3 auprès de vos fournisseurs, et animer des ateliers de conduite du changement, c'est l'accompagnement humain d'ekodev qui crée la bascule entre un 'bon reporting' et une 'vraie transition'.",
+  },
+  {
+    q: "\"Nous n'avons pas le temps / pas les données.\"",
+    a: "C'est justement la valeur d'un cabinet. On ne vous demande pas d'être prêts. Notre méthodologie consiste précisément à auditer ce que vous avez, structurer la collecte, et faire le travail d'ingénierie à votre place.",
+  },
+  {
+    q: "\"Pas de budget cette année.\"",
+    a: "Ne pas anticiper vous coûtera plus cher : perte de points dans les appels d'offres B2B, inefficacité énergétique non détectée. De plus, nos missions peuvent s'inscrire dans des dispositifs d'aide — ex: Diag Décarbon'Action Bpifrance.",
+  },
+  {
+    q: "\"On n'est pas concernés par la CSRD.\"",
+    a: "Même hors obligation directe, vos clients grands comptes vont vous demander vos données carbone pour leur propre reporting. Les banques et assureurs conditionnent déjà leurs financements à un bilan ESG. Et sur les appels d'offres publics, c'est un critère croissant.",
+  },
 ];
 
 export const discoveryQuestions = [
-  { category: "Périmètre", items: ["Combien de sites en France et à l'international ?", "Combien d'entités juridiques concernées ?", "Effectif total du périmètre ?"] },
-  { category: "Données existantes", items: ["Données énergie centralisées ? ERP disponible ?", "Données achats, transport, déchets accessibles ?", "Qui est propriétaire des données en interne ?"] },
-  { category: "Maturité RSE", items: ["Premier bilan ou mise à jour ?", "Démarche CSRD en cours ? Notation EcoVadis ?", "Objectifs climat définis par la maison mère ?"] },
-  { category: "Deadline & urgence", items: ["Deadline réglementaire ou client qui conditionne le timing ?", "Exercice de référence souhaité ?", "Appel d'offres ou audit prévu ?"] },
-  { category: "Budget & financement", items: ["Budget RSE alloué cette année ?", "Connaissance du Diag Décarbon'Action BpiFrance ?", "Qui valide le budget — DG ou DAF ?"] },
-  { category: "Ambition", items: ["Conformité seule ou vraie stratégie de décarbonation ?", "Feuille de route 2030 souhaitée ?", "Quelle communication envisagée autour du bilan ?"] },
+  {
+    category: "Cadrage du Périmètre",
+    sub: "Évaluer la complexité",
+    items: [
+      "Combien d'entités juridiques et de sites physiques sont concernés ?",
+      "Quelle est la part de votre activité à l'international vs France ?",
+      "Quels sont, selon vous, les postes d'émissions les plus critiques sur votre chaîne de valeur (Scope 3 : achats, fret, fin de vie des produits) ?",
+    ],
+  },
+  {
+    category: "Gouvernance & Maturité",
+    sub: "Identifier les alliés internes",
+    items: [
+      "Qui est le propriétaire de la donnée en interne (Achats, RH, Finance) ?",
+      "Avez-vous déjà un logiciel SIRH ou ERP pour extraire facilement ces flux ?",
+      "Qui portera le projet au Codir pour valider le plan de transition ?",
+    ],
+  },
+  {
+    category: "Les Enjeux Réels",
+    sub: "Trouver le vrai 'Pain Point'",
+    items: [
+      "Quel est le déclencheur aujourd'hui : Mise en conformité pure ?",
+      "Pression d'un client majeur ou donneur d'ordres ?",
+      "Volonté d'optimiser vos coûts énergétiques via la démarche ?",
+    ],
+  },
 ];
 
 export const proposalSteps = [
-  { num: "01", title: "Contexte & enjeux réglementaires" },
-  { num: "02", title: "Compréhension de la situation client" },
-  { num: "03", title: "Notre approche & méthodologie" },
-  { num: "04", title: "Livrables & planning 8 semaines" },
-  { num: "05", title: "Budget & financement BpiFrance" },
-  { num: "06", title: "Pourquoi ekodev" },
-  { num: "07", title: "Vision 3 ans du compte ★" },
+  { num: "01", title: "Synthèse exécutive", sub: "Reformulation de leurs enjeux — on montre qu'on a compris leur douleur" },
+  { num: "02", title: "Périmètre & Méthodologie", sub: "Cadrage S1/S2/S3, méthodes de collecte, cadres ACT" },
+  { num: "03", title: "Gouvernance du projet", sub: "Qui fait quoi — Rôle d'ekodev vs Rôle du client" },
+  { num: "04", title: "Livrables", sub: "Bilan GES, Synthèse direction, Plan d'action et trajectoire chiffrée" },
+  { num: "05", title: "Planning & Budget", sub: "Jalons : Kick-off → Collecte → Restitution" },
+];
+
+export const closingRule = {
+  title: "La Règle d'Or du Closing",
+  body: "Une proposition commerciale complexe (15k€ – 50k€+) ne s'envoie jamais seule par email. La prochaine étape est d'imposer, dès le premier RDV, la date de la réunion de soutenance. J'envoie le PDF 2h avant cette réunion. L'objectif est de lire la proposition avec eux, de traiter les objections budgétaires en direct, et de valider les prochaines étapes décisionnelles avec le DAF.",
+  steps: [
+    { icon: "📋", label: "RDV de découverte", sub: "Poser les questions de qualification" },
+    { icon: "📅", label: "Fixer la soutenance", sub: "Date imposée dès ce premier RDV" },
+    { icon: "📄", label: "Envoi du PDF", sub: "2h avant la réunion seulement" },
+    { icon: "🤝", label: "Closing en direct", sub: "Objections traitées en temps réel" },
+  ],
+};
+
+export const ekodevArguments = [
+  {
+    icon: "🔄",
+    title: "Vous n'achetez pas un calcul",
+    body: "Vous achetez une transformation. Contrairement à un SaaS qui s'arrête au tableau de bord, ekodev vous accompagne sur l'animation, la formation (Fresque du Climat) et la stratégie (Biodiversité, RSE).",
+  },
+  {
+    icon: "⚡",
+    title: "La force du Groupe EPSA",
+    body: "Une fois les postes d'émissions identifiés, nous pouvons connecter le client aux experts d'Enoptea et Energiency pour aller chercher un ROI financier immédiat sur la facture énergétique. Le bilan carbone devient un centre de profit, pas un coût.",
+  },
 ];
 
 export const vsTable = {

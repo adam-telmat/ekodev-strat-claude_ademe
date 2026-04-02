@@ -79,8 +79,8 @@ const HeroSection = () => {
       minHeight: "100vh",
       background: "#003035",
       display: "flex",
-      alignItems: "center",
-      padding: "100px 80px 80px",
+      alignItems: "flex-start",
+      padding: "clamp(84px, 12vh, 140px) 80px 80px",
       position: "relative",
       overflow: "hidden",
     }}>

@@ -256,9 +256,11 @@ const PropositionSection = () => {
           </div>
         </div>
 
-      {/* Citation clé - prochaine étape */}
-      <div className="reveal" style={{ margin: "60px auto 0", maxWidth: 860, padding: "0 clamp(20px,4vw,0px)" }}>
-        <div style={{ background: "#003035", border: "1px solid rgba(255,220,90,0.25)", borderLeft: "4px solid #FFDC5A", padding: "40px 48px", position: "relative" }}>
+      </section>
+
+      {/* Citation clé - prochaine étape - fond #003035 pour raccord avec LTV */}
+      <div style={{ background: "#003035", padding: "clamp(48px,8vw,80px) clamp(20px,5vw,60px)" }}>
+        <div className="reveal" style={{ maxWidth: 860, margin: "0 auto", borderLeft: "4px solid #FFDC5A", paddingLeft: 40 }}>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFDC5A", marginBottom: 20 }}>// Prochaine étape post-proposition</div>
           <p style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(18px, 2.2vw, 24px)", fontStyle: "italic", fontWeight: 700, color: "#F8F7F3", lineHeight: 1.6, margin: "0 0 20px" }}>
             "Je n'envoie jamais une proposition dans le vide."
@@ -270,8 +272,6 @@ const PropositionSection = () => {
           </p>
         </div>
       </div>
-
-      </section>
 
     </>
   );
